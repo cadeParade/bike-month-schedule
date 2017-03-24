@@ -4,16 +4,47 @@ import './App.css';
 import DATA from './data';
 import Moment from 'react-moment';
 import moment from 'moment';
+import Select from 'react-select';
+
+// Be sure to include styles at some point, probably during your bootstrapping
+import 'react-select/dist/react-select.css';
+
+const AUDIENCE_OPTIONS = [
+  { value: 'Adults', label: 'Adults' },
+  { value: 'Women', label: 'Women' },
+  { value: 'Kids', label: 'Kids' },
+  { value: 'Beginners', label: 'Beginners' }
+];
+
+const EVENT_TYPE_OPTIONS = [
+  { value: 'Pathway', label: 'Pathway' },
+  { value: 'Road', label: 'Road' },
+  { value: 'Off road', label: 'Off road' },
+  { value: 'Long road', label: 'Long road' },
+  { value: 'Workshop', label: 'Workshop' }
+];
+
+const TIME_OF_DAY_OPTIONS = [
+  { value: 'Morning', label: 'Morning' },
+  { value: 'Afternoon', label: 'Afternoon' },
+  { value: 'Evening', label: 'Evening' }
+];
+
+
+const DAY_OF_WEEK_OPTIONS = [
+  { value: 'Weekday', label: 'Weekday' },
+  { value: 'Weekend', label: 'Weekend' }
+];
 
 
 class Row extends Component {
   locationDisplay() {
     const rowData = this.props.rowData;
     if (!!rowData.Pathway) { return 'Pathway';}
-    if (!!rowData.Road) {return 'Road';}
-    if (!!rowData['Off road']) {return 'Off road';}
-    if (!!rowData['Long road']) {return 'Long road';}
-    if (!!rowData.Workshop) {return 'Workshop';}
+    if (!!rowData.Road) { return 'Road'; }
+    if (!!rowData['Off road']) { return 'Off road'; }
+    if (!!rowData['Long road']) { return 'Long road'; }
+    if (!!rowData.Workshop) { return 'Workshop'; }
   }
 
   audienceDisplay() {
@@ -30,15 +61,7 @@ class Row extends Component {
 
   datetime() {
     const rowData = this.props.rowData;
-
-    const month = rowData.Date.split('-')[1];
-    const day = rowData.Date.split('-')[0];
-    const time = rowData.Time;
-    const ampm = rowData.timeOfDay;
-
-    const datetimeString = [month, day, time, ampm].join(' ');
-
-    return moment(datetimeString, 'MMMM DD hh:mm a');
+    return _makeDatetime(rowData);
   }
 
 
@@ -64,9 +87,97 @@ class Row extends Component {
   }
 }
 
+function _makeDatetimeString(dataItem) {
+  const month = dataItem.Date.split('-')[1];
+  const day = dataItem.Date.split('-')[0];
+  const time = dataItem.Time;
+  const ampm = dataItem.timeOfDay;
+
+  return [month, day, time, ampm].join(' ');
+}
+
+function _makeDatetime(dataItem) {
+  return moment(_makeDatetimeString(dataItem), 'MMMM DD hh:mm a');
+}
+
+function _makeTime(dataItem) {
+  return moment(_makeDatetimeString(dataItem), 'hh:mm a');
+}
+
+
+function dateTimeCompare(a, b) {
+  const date1 = _makeDatetime(a);
+  const date2 = _makeDatetime(b)
+  if (date1 < date2) { return -1 }
+  if (date1 > date2) { return 1 };
+  return 0;
+}
+
+function timeCompare(a, b) {
+  const time1 = _makeTime(a);
+  const time2 = _makeTime(b);
+  if (time1 < time2) { return -1 }
+  if (time1 > time2) { return 1 }
+  return 0
+
+}
+
+
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.data = DATA;
+
+    this.state = {
+      filteredData: this.sortByDateTime(DATA),
+      selectedAudienceFilter: 'Adults',
+      selectedEventTypeFilter: 'Workshop',
+      selectedTimeOfDayFilter: 'Evening',
+      selectedDayOfWeekFilter: 'Weekday'
+    }
+  }
+
+  sortByDateTime() {
+    return this.data.sort(dateTimeCompare);
+  }
+
+  sortByTime() {
+    return this.data.sort(timeCompare);
+  }
+
+  filterMethod(selectOption) {
+    const filteredRows = this.data.filter((row) => {
+      return !!row[selectOption.value];
+    });
+
+    this.setState({ filteredData: filteredRows });
+  }
+
+  filterByAudience(option) {
+    this.setState({ selectedAudienceFilter: option.value });
+    this.filterMethod(option);
+  }
+
+
+  filterByEventType(option) {
+    this.setState({ selectedEventTypeFilter: option.value });
+    this.filterMethod(option);
+  }
+
+  filterByTimeOfDay(option) {
+    this.setState({ selectedTimeOfDayFilter: option.value });
+    this.filterMethod(option);
+  }
+
+  filterByDayOfWeek(option) {
+    this.setState({ selectedDayOfWeekFilter: option.value });
+    this.filterMethod(option);
+  }
+
   render() {
-    const rows = DATA.map((row) => {
+
+    const rows = this.state.filteredData.map((row) => {
       return (<Row rowData={row} />)
     })
 
@@ -74,13 +185,54 @@ class App extends Component {
 
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React HELLO</h2>
+
+          <div>
+            Filter by audience:
+            <Select
+              value={this.state.selectedAudienceFilter}
+              options={AUDIENCE_OPTIONS}
+              onChange={this.filterByAudience.bind(this)}
+            />
+          </div>
+          <div>
+            Filter by event type:
+            <Select
+              value={this.state.selectedEventTypeFilter}
+              options={EVENT_TYPE_OPTIONS}
+              onChange={this.filterByEventType.bind(this)}
+            />
+          </div>
+
+          <div>
+            Filter by time of day:
+            <Select
+              value={this.state.selectedTimeOfDayFilter}
+              options={TIME_OF_DAY_OPTIONS}
+              onChange={this.filterByTimeOfDay.bind(this)}
+            />
+          </div>
+
+
+          <div>
+            Filter by day of week:
+            <Select
+              value={this.state.selectedDayOfWeekFilter}
+              options={DAY_OF_WEEK_OPTIONS}
+              onChange={this.filterByDayOfWeek.bind(this)}
+            />
+          </div>
+
+
+          <div>filter by audience</div>
+          <div>filter by event type</div>
+          <div>filter by time of day (morning, afternoon, evening)</div>
+          <div>am/pm checkbox</div>
+          <div>sort by date/time</div>
         </div>
         <div>
           <div className="row header">
             <div className='cell name'>
-              Event
+              Event <span>(sort)</span>
             </div>
             <div className='cell day'>
               Date
@@ -102,5 +254,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

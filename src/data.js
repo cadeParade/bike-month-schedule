@@ -16,7 +16,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -36,7 +36,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -56,7 +56,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -76,7 +76,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -96,7 +96,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -116,7 +116,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -136,7 +136,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -156,7 +156,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -176,7 +176,7 @@ export default [
    "Morning": "",
    "Afternoon": "x",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -196,7 +196,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -216,7 +216,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -236,7 +236,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -256,7 +256,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -276,7 +276,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -296,7 +296,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -316,7 +316,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -336,7 +336,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -356,7 +356,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -376,7 +376,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -396,7 +396,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -416,7 +416,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -436,7 +436,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -456,7 +456,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -476,7 +476,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -496,7 +496,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -516,7 +516,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -536,7 +536,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -556,7 +556,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -576,7 +576,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -596,7 +596,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -616,7 +616,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -636,7 +636,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -656,7 +656,7 @@ export default [
    "Morning": "",
    "Afternoon": "x",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -676,7 +676,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -696,7 +696,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -716,7 +716,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -736,7 +736,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -756,7 +756,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -776,7 +776,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "",
+   "Weekday": "",
    "Weekend": "x"
  },
  {
@@ -796,7 +796,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -816,7 +816,7 @@ export default [
    "Morning": "x",
    "Afternoon": "",
    "Evening": "",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  },
  {
@@ -836,7 +836,7 @@ export default [
    "Morning": "",
    "Afternoon": "",
    "Evening": "x",
-   "FIELD17": "x",
+   "Weekday": "x",
    "Weekend": ""
  }
 ]
