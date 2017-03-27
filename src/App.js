@@ -156,16 +156,17 @@ class App extends Component {
 
   clearFilters(filterToNotClear) {
     this.setState({
+      filteredData: this.data,
       selectedAudienceFilter: null,
       selectedEventTypeFilter: null,
       selectedTimeOfDayFilter: null,
       selectedDayOfWeekFilter: null
-    })
+    });
   }
 
   filterByAudience(option) {
+    this.clearFilters()
     if (option) {
-      this.clearFilters()
       this.setState({ selectedAudienceFilter: option.value });
       this.filterMethod(option);
     }
@@ -173,24 +174,24 @@ class App extends Component {
 
 
   filterByEventType(option) {
+    this.clearFilters()
     if (option) {
-      this.clearFilters()
       this.setState({ selectedEventTypeFilter: option.value });
       this.filterMethod(option);
     }
   }
 
   filterByTimeOfDay(option) {
+    this.clearFilters()
     if (option) {
-      this.clearFilters()
       this.setState({ selectedTimeOfDayFilter: option.value });
       this.filterMethod(option);
     }
   }
 
   filterByDayOfWeek(option) {
+    this.clearFilters()
     if (option) {
-      this.clearFilters()
       this.setState({ selectedDayOfWeekFilter: option.value });
       this.filterMethod(option);
     }
@@ -214,7 +215,6 @@ class App extends Component {
               options={TIME_OF_DAY_OPTIONS}
               onChange={this.filterByTimeOfDay.bind(this)}
               placeholder="Time of day…"
-              clearable={false}
             />
           </div>
 
@@ -225,7 +225,6 @@ class App extends Component {
               options={DAY_OF_WEEK_OPTIONS}
               onChange={this.filterByDayOfWeek.bind(this)}
               placeholder="Day of week…"
-              clearable={false}
             />
           </div>
 
@@ -236,7 +235,6 @@ class App extends Component {
               options={AUDIENCE_OPTIONS}
               onChange={this.filterByAudience.bind(this)}
               placeholder="Audience…"
-              clearable={false}
             />
           </div>
 
@@ -247,7 +245,6 @@ class App extends Component {
               options={EVENT_TYPE_OPTIONS}
               onChange={this.filterByEventType.bind(this)}
               placeholder="Event type…"
-              clearable={false}
             />
           </div>
 
