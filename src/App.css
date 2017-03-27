@@ -7,11 +7,6 @@ body {
   height: 80px;
 }
 
-.App-header {
-  height: 150px;
-  padding: 20px;
-}
-
 .App-intro {
   font-size: large;
 }
@@ -59,4 +54,23 @@ body {
 
 .location {
   width: 200px;
+}
+
+.filter-header {
+  height: 65px;
+  padding: 20px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filter {
+  display: inline-block;
+  margin: auto;
+}
+
+.filter-title {
+  margin-bottom: 5px;
 }

@@ -131,10 +131,10 @@ class App extends Component {
 
     this.state = {
       filteredData: this.sortByDateTime(DATA),
-      selectedAudienceFilter: 'Adults',
-      selectedEventTypeFilter: 'Workshop',
-      selectedTimeOfDayFilter: 'Evening',
-      selectedDayOfWeekFilter: 'Weekday'
+      selectedAudienceFilter: null,
+      selectedEventTypeFilter: null,
+      selectedTimeOfDayFilter: null,
+      selectedDayOfWeekFilter: null
     }
   }
 
@@ -151,28 +151,49 @@ class App extends Component {
       return !!row[selectOption.value];
     });
 
-    this.setState({ filteredData: filteredRows });
+    this.setState({ filteredData: filteredRows   });
+  }
+
+  clearFilters(filterToNotClear) {
+    this.setState({
+      selectedAudienceFilter: null,
+      selectedEventTypeFilter: null,
+      selectedTimeOfDayFilter: null,
+      selectedDayOfWeekFilter: null
+    })
   }
 
   filterByAudience(option) {
-    this.setState({ selectedAudienceFilter: option.value });
-    this.filterMethod(option);
+    if (option) {
+      this.clearFilters()
+      this.setState({ selectedAudienceFilter: option.value });
+      this.filterMethod(option);
+    }
   }
 
 
   filterByEventType(option) {
-    this.setState({ selectedEventTypeFilter: option.value });
-    this.filterMethod(option);
+    if (option) {
+      this.clearFilters()
+      this.setState({ selectedEventTypeFilter: option.value });
+      this.filterMethod(option);
+    }
   }
 
   filterByTimeOfDay(option) {
-    this.setState({ selectedTimeOfDayFilter: option.value });
-    this.filterMethod(option);
+    if (option) {
+      this.clearFilters()
+      this.setState({ selectedTimeOfDayFilter: option.value });
+      this.filterMethod(option);
+    }
   }
 
   filterByDayOfWeek(option) {
-    this.setState({ selectedDayOfWeekFilter: option.value });
-    this.filterMethod(option);
+    if (option) {
+      this.clearFilters()
+      this.setState({ selectedDayOfWeekFilter: option.value });
+      this.filterMethod(option);
+    }
   }
 
   render() {
@@ -184,51 +205,61 @@ class App extends Component {
     return (
 
       <div className="App">
-        <div className="App-header">
+        <div className="App-header filter-header">
 
-          <div>
-            Filter by audience:
-            <Select
-              value={this.state.selectedAudienceFilter}
-              options={AUDIENCE_OPTIONS}
-              onChange={this.filterByAudience.bind(this)}
-            />
-          </div>
-          <div>
-            Filter by event type:
-            <Select
-              value={this.state.selectedEventTypeFilter}
-              options={EVENT_TYPE_OPTIONS}
-              onChange={this.filterByEventType.bind(this)}
-            />
-          </div>
-
-          <div>
-            Filter by time of day:
+          <div className="filter">
+            <div className="filter-title">Filter by time of day:</div>
             <Select
               value={this.state.selectedTimeOfDayFilter}
               options={TIME_OF_DAY_OPTIONS}
               onChange={this.filterByTimeOfDay.bind(this)}
+              placeholder="Time of day…"
+              clearable={false}
             />
           </div>
 
-
-          <div>
-            Filter by day of week:
+          <div className="filter">
+            <div className="filter-title">Filter by day of week:</div>
             <Select
               value={this.state.selectedDayOfWeekFilter}
               options={DAY_OF_WEEK_OPTIONS}
               onChange={this.filterByDayOfWeek.bind(this)}
+              placeholder="Day of week…"
+              clearable={false}
             />
           </div>
 
+          <div className="filter">
+            <div className="filter-title">Filter by audience:</div>
+            <Select
+              value={this.state.selectedAudienceFilter}
+              options={AUDIENCE_OPTIONS}
+              onChange={this.filterByAudience.bind(this)}
+              placeholder="Audience…"
+              clearable={false}
+            />
+          </div>
 
-          <div>filter by audience</div>
-          <div>filter by event type</div>
-          <div>filter by time of day (morning, afternoon, evening)</div>
-          <div>am/pm checkbox</div>
-          <div>sort by date/time</div>
+          <div className="filter">
+            <div className="filter-title">Filter by event type:</div>
+            <Select
+              value={this.state.selectedEventTypeFilter}
+              options={EVENT_TYPE_OPTIONS}
+              onChange={this.filterByEventType.bind(this)}
+              placeholder="Event type…"
+              clearable={false}
+            />
+          </div>
+
         </div>
+
+{/* 
+        <div>filter by audience</div>
+        <div>filter by event type</div>
+        <div>filter by time of day (morning, afternoon, evening)</div>
+        <div>am/pm checkbox</div>
+        <div>sort by date/time</div>
+*/}
         <div>
           <div className="row header">
             <div className='cell name'>
