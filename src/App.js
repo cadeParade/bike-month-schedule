@@ -146,12 +146,23 @@ class App extends Component {
     return this.data.sort(timeCompare);
   }
 
-  filterMethod(selectOption) {
-    const filteredRows = this.data.filter((row) => {
-      return !!row[selectOption.value];
+  _filterMethod(value) {
+    return this.state.filteredData.filter((row) => {
+      return !!row[this.state[value]]
     });
+  }
 
-    this.setState({ filteredData: filteredRows   });
+  filterMethod() {
+    let filteredRows = this.data;
+    const _this = this;
+    ['selectedAudienceFilter',
+     'selectedEventTypeFilter',
+     'selectedTimeOfDayFilter',
+     'selectedDayOfWeekFilter'].forEach(function(filterString) {
+       if (!!_this.state[filterString]) {
+        _this.setState({ filteredData: _this._filterMethod(filterString) })
+       }
+     });
   }
 
   clearFilters(filterToNotClear) {
@@ -164,37 +175,35 @@ class App extends Component {
     });
   }
 
-  filterByAudience(option) {
-    this.clearFilters()
+  filterBy(filterName, option) {
     if (option) {
-      this.setState({ selectedAudienceFilter: option.value });
-      this.filterMethod(option);
+      this.setState({ [filterName]: option.value });
+      setTimeout(() => {
+        this.filterMethod(option);
+      }, 50);
+    } else {
+      this.setState({
+        filteredData: this.data,
+        [filterName]: null
+      })
     }
+  }
+
+  filterByAudience(option) {
+    this.filterBy('selectedAudienceFilter', option)
   }
 
 
   filterByEventType(option) {
-    this.clearFilters()
-    if (option) {
-      this.setState({ selectedEventTypeFilter: option.value });
-      this.filterMethod(option);
-    }
+    this.filterBy('selectedEventTypeFilter', option)
   }
 
   filterByTimeOfDay(option) {
-    this.clearFilters()
-    if (option) {
-      this.setState({ selectedTimeOfDayFilter: option.value });
-      this.filterMethod(option);
-    }
+    this.filterBy('selectedTimeOfDayFilter', option)
   }
 
   filterByDayOfWeek(option) {
-    this.clearFilters()
-    if (option) {
-      this.setState({ selectedDayOfWeekFilter: option.value });
-      this.filterMethod(option);
-    }
+    this.filterBy('selectedDayOfWeekFilter', option)
   }
 
   render() {
@@ -233,7 +242,7 @@ class App extends Component {
             <Select
               value={this.state.selectedAudienceFilter}
               options={AUDIENCE_OPTIONS}
-              onChange={this.filterByAudience.bind(this)}
+              onChange={this.filterBy.bind(this, 'selectedAudienceFilter')}
               placeholder="Audience…"
             />
           </div>
