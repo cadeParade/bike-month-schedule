@@ -146,23 +146,29 @@ class App extends Component {
     return this.data.sort(timeCompare);
   }
 
-  _filterMethod(value) {
-    return this.state.filteredData.filter((row) => {
+  _filterMethod(data, value) {
+    const x = data.filter((row) => {
       return !!row[this.state[value]]
     });
+    console.log('filter method results', x)
+    return x
   }
 
   filterMethod() {
-    let filteredRows = this.data;
+    let filteredRows = Array.prototype.slice.apply(DATA);//   this.data;
+    console.log("new filtered rows length is ", filteredRows.length)
+    console.log("going to filter down by", this.state);
     const _this = this;
     ['selectedAudienceFilter',
      'selectedEventTypeFilter',
      'selectedTimeOfDayFilter',
      'selectedDayOfWeekFilter'].forEach(function(filterString) {
        if (!!_this.state[filterString]) {
-        _this.setState({ filteredData: _this._filterMethod(filterString) })
+        filteredRows = _this._filterMethod(filteredRows, filterString);
        }
      });
+     console.log("filter down to ", filteredRows.length);
+     _this.setState({ filteredData: filteredRows });
   }
 
   clearFilters(filterToNotClear) {
@@ -176,16 +182,22 @@ class App extends Component {
   }
 
   filterBy(filterName, option) {
+    // 1. Get existing list of filters from this.state, store in local var
+    // 2. Update newFilterSet of filters by adding [filterName]: option.value or null
+    // 3. Compute newFilteredData using this new list of filters
+    // 4. setState({filteredData: newFilteredData, filters: newFilterSet})
+    //
     if (option) {
       this.setState({ [filterName]: option.value });
       setTimeout(() => {
-        this.filterMethod(option);
-      }, 50);
+        this.filterMethod();
+      }, 1);
     } else {
-      this.setState({
-        filteredData: this.data,
-        [filterName]: null
-      })
+      console.log("IN ELSE", filterName, option)
+      this.setState({ [filterName]: null })
+      setTimeout(() => {
+        this.filterMethod();
+      }, 1);
     }
   }
 
@@ -242,7 +254,7 @@ class App extends Component {
             <Select
               value={this.state.selectedAudienceFilter}
               options={AUDIENCE_OPTIONS}
-              onChange={this.filterBy.bind(this, 'selectedAudienceFilter')}
+              onChange={this.filterByAudience.bind(this)}
               placeholder="Audience…"
             />
           </div>
