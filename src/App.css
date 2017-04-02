@@ -11,9 +11,37 @@ body {
   font-size: large;
 }
 
+
+.picture-header {
+  padding-left: 20px;
+  padding-top: 20px;
+  height: 200px;
+  color: white;
+  background-image: url("https://c1.staticflickr.com/4/3270/2562658408_52b8d245f3_b.jpg");
+  position: relative;
+  background-size: cover;
+}
+
+.photo-attribution {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+}
+
+.photo-attribution a {
+  font-size: 9px;
+  color: white;
+  text-decoration: none;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.table {
+  margin: auto;
+  width: 89%
 }
 
 
@@ -22,11 +50,14 @@ body {
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
-  border-top: 1px solid black;
+  border-top: 1px solid #3B8686;
 }
 
 .header {
-  background-color: gray;
+  background-color: #CFF09E;
+  border-top: none;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .cell {
@@ -35,30 +66,9 @@ body {
   text-align: left;
 }
 
-.name {
-  width: 250px;
-}
-
-.day {
-  width: 58px;
-}
-
-.time {
-  width: 75px;
-  margin-right: 40px;
-}
-
-.audience {
-  width: 170px;
-}
-
-.location {
-  width: 200px;
-}
-
 .filter-header {
   height: 65px;
-  padding: 20px;
+  padding: 30px 10px;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
@@ -73,4 +83,13 @@ body {
 
 .filter-title {
   margin-bottom: 5px;
+}
+
+.clear-button {
+  margin-top:20px;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: #A8DBA8;
+  cursor: pointer;
 }

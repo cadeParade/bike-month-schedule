@@ -67,20 +67,20 @@ class Row extends Component {
 
   render() {
     return (
-    <div className='row'>
-      <div className='cell name'>
+    <div className='row clearfix'>
+      <div className='cell col col-4 name'>
         {this.props.rowData.Event}
       </div>
-      <div className='cell day'>
+      <div className='cell col col-1 day'>
         <Moment format="MMM D">{this.datetime()}</Moment>
       </div>
-      <div className='cell time'>
+      <div className='cell col col-2 time'>
         <Moment format="h:mm a">{this.datetime()}</Moment>
       </div>
-      <div className='cell audience'>
+      <div className='cell col col-3 audience'>
         {this.audienceDisplay()}
       </div>
-      <div className='cell location'>
+      <div className='cell col col-2 location'>
         {this.locationDisplay()}
       </div>
     </div>)
@@ -150,14 +150,11 @@ class App extends Component {
     const x = data.filter((row) => {
       return !!row[this.state[value]]
     });
-    console.log('filter method results', x)
     return x
   }
 
   filterMethod() {
     let filteredRows = Array.prototype.slice.apply(DATA);//   this.data;
-    console.log("new filtered rows length is ", filteredRows.length)
-    console.log("going to filter down by", this.state);
     const _this = this;
     ['selectedAudienceFilter',
      'selectedEventTypeFilter',
@@ -167,18 +164,7 @@ class App extends Component {
         filteredRows = _this._filterMethod(filteredRows, filterString);
        }
      });
-     console.log("filter down to ", filteredRows.length);
      _this.setState({ filteredData: filteredRows });
-  }
-
-  clearFilters(filterToNotClear) {
-    this.setState({
-      filteredData: this.data,
-      selectedAudienceFilter: null,
-      selectedEventTypeFilter: null,
-      selectedTimeOfDayFilter: null,
-      selectedDayOfWeekFilter: null
-    });
   }
 
   filterBy(filterName, option) {
@@ -193,7 +179,6 @@ class App extends Component {
         this.filterMethod();
       }, 1);
     } else {
-      console.log("IN ELSE", filterName, option)
       this.setState({ [filterName]: null })
       setTimeout(() => {
         this.filterMethod();
@@ -204,7 +189,6 @@ class App extends Component {
   filterByAudience(option) {
     this.filterBy('selectedAudienceFilter', option)
   }
-
 
   filterByEventType(option) {
     this.filterBy('selectedEventTypeFilter', option)
@@ -218,15 +202,33 @@ class App extends Component {
     this.filterBy('selectedDayOfWeekFilter', option)
   }
 
-  render() {
+  clearFilters() {
+    this.setState({
+      filteredData: this.data,
+      selectedAudienceFilter: null,
+      selectedEventTypeFilter: null,
+      selectedTimeOfDayFilter: null,
+      selectedDayOfWeekFilter: null
+    })
+  }
 
+  render() {
     const rows = this.state.filteredData.map((row) => {
       return (<Row rowData={row} />)
     })
 
     return (
-
       <div className="App">
+        <div className="picture-header">
+          <h1>Woodlands</h1>
+          <h1>Cycling</h1>
+          <h1>Dealy</h1>
+          <div className="photo-attribution">
+            <a href="https://www.flickr.com/photos/eleaf/2562658408/in/photolist-4Usi4E-4Uo4Jk-cdZDWQ-f9ztwp-EkNaev-8P9xaj-9Sfuuf-ofR5Rq-5ntxjh-8YgXoS-93xJb2-9RY3Ma-8e6jpT-obYd9y-7D4Vmb-pcyWYn-pT9cTi-FxX789-uypKTW-k5Ee8V-kWEEEg-a2L82a-4UshrS-4Uo4UV-o8KCbS-dseySr-4Uo5ft-4Uo2uZ-eheECF-ckfm7C-d8BqmL-4Uo574-9tG11T-oxdGqy-4uML4R-rQM91j-kYmC4E-ckfHzA-hoJrJN-9Mfjux-czzpey-dsn4kg-5yxST9-7ZZ9nA-4DixfL-d5j2CC-ckfkcU-7n995Q-mLyCiX-9Mi7Zs">
+              Iron Horse Bicycle Race Durango Women 9 by Ethan Lofton
+            </a>
+          </div>
+        </div>
         <div className="App-header filter-header">
 
           <div className="filter">
@@ -269,30 +271,27 @@ class App extends Component {
             />
           </div>
 
+          <div className="filter">
+            <div className="clear-button" onClick={this.clearFilters.bind(this)}>Clear filters</div>
+          </div>
+
         </div>
 
-{/* 
-        <div>filter by audience</div>
-        <div>filter by event type</div>
-        <div>filter by time of day (morning, afternoon, evening)</div>
-        <div>am/pm checkbox</div>
-        <div>sort by date/time</div>
-*/}
-        <div>
-          <div className="row header">
-            <div className='cell name'>
+        <div className="table">
+          <div className="row header clearfix">
+            <div className='cell name col col-4'>
               Event <span>(sort)</span>
             </div>
-            <div className='cell day'>
+            <div className='cell col day col-1'>
               Date
             </div>
-            <div className='cell time'>
+            <div className='cell col time col-2'>
               Time
             </div>
-            <div className='cell audience'>
+            <div className='cell col audience col-3'>
               Audience
             </div>
-            <div className='cell location'>
+            <div className='cell col location col-2'>
               Event Type
             </div>
           </div>
