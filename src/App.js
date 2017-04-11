@@ -13,12 +13,13 @@ const AUDIENCE_OPTIONS = [
   { value: 'Adults', label: 'Adults' },
   { value: 'Women', label: 'Women' },
   { value: 'Kids', label: 'Kids' },
-  { value: 'Beginners', label: 'Beginners' }
+  { value: 'Families', label: 'Families' }
 ];
 
 const EVENT_TYPE_OPTIONS = [
   { value: 'Pathway', label: 'Pathway' },
   { value: 'Road', label: 'Road' },
+  { value: 'Road, Relaxed', label: 'Road, Relaxed' },
   { value: 'Off road', label: 'Off road' },
   { value: 'Long road', label: 'Long road' },
   { value: 'Workshop', label: 'Workshop' }
@@ -36,6 +37,17 @@ const DAY_OF_WEEK_OPTIONS = [
   { value: 'Weekend', label: 'Weekend' }
 ];
 
+const STARTING_AREA_OPTIONS = [
+  { value: "Alden Bridge", label: "Alden Bridge" },
+  { value: "Cochrans  Crossing", label: "Cochrans Crossing" },
+  { value: "Creekside", label: "Creekside" },
+  { value: "Grogans Mill", label: "Grogans Mill" },
+  { value: "Indian Springs", label: "Indian Springs" },
+  { value: "Panther Creek", label: "Panther Creek" },
+  { value: "Sterling Ridge", label: "Sterling Ridge" },
+  { value: "Town Center", label: "Town Center" }
+];
+
 
 class Row extends Component {
   locationDisplay() {
@@ -45,6 +57,7 @@ class Row extends Component {
     if (!!rowData['Off road']) { return 'Off road'; }
     if (!!rowData['Long road']) { return 'Long road'; }
     if (!!rowData.Workshop) { return 'Workshop'; }
+    if (!!rowData['Road, Relaxed']) { return 'Road, Relaxed'; }
   }
 
   audienceDisplay() {
@@ -54,7 +67,7 @@ class Row extends Component {
     if (rowData.Kids) { audience.push('Kids'); }
     if (rowData.Adults) { audience.push('Adults'); }
     if (rowData.Women) { audience.push('Women'); }
-    if (rowData.Beginners) { audience.push('Beginners'); }
+    if (rowData.Families) { audience.push('Families'); }
 
     return (audience.join(', '));
   }
@@ -62,6 +75,17 @@ class Row extends Component {
   datetime() {
     const rowData = this.props.rowData;
     return _makeDatetime(rowData);
+  }
+
+  startingLocationDisplay() {
+    const rowData = this.props.rowData;
+    let location = null;
+    STARTING_AREA_OPTIONS.forEach((option) => {
+      if (!!rowData[option.value]) { 
+        location = option.label;
+      }
+    });
+    return location;
   }
 
 
@@ -77,11 +101,14 @@ class Row extends Component {
       <div className='cell col col-2 time'>
         <Moment format="h:mm a">{this.datetime()}</Moment>
       </div>
-      <div className='cell col col-3 audience'>
+      <div className='cell col col-2 audience'>
         {this.audienceDisplay()}
       </div>
       <div className='cell col col-2 location'>
         {this.locationDisplay()}
+      </div>
+      <div className='cell col col-3 location'>
+        {this.startingLocationDisplay()}
       </div>
     </div>)
   }
@@ -159,7 +186,8 @@ class App extends Component {
     ['selectedAudienceFilter',
      'selectedEventTypeFilter',
      'selectedTimeOfDayFilter',
-     'selectedDayOfWeekFilter'].forEach(function(filterString) {
+     'selectedDayOfWeekFilter',
+     'selectedStartingLocationFilter'].forEach(function(filterString) {
        if (!!_this.state[filterString]) {
         filteredRows = _this._filterMethod(filteredRows, filterString);
        }
@@ -202,13 +230,18 @@ class App extends Component {
     this.filterBy('selectedDayOfWeekFilter', option)
   }
 
+  filterByStartingLocation(option) {
+    this.filterBy('selectedStartingLocationFilter', option)
+  }
+
   clearFilters() {
     this.setState({
       filteredData: this.data,
       selectedAudienceFilter: null,
       selectedEventTypeFilter: null,
       selectedTimeOfDayFilter: null,
-      selectedDayOfWeekFilter: null
+      selectedDayOfWeekFilter: null,
+      selectedStartingLocationFilter: null
     })
   }
 
@@ -220,9 +253,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className="picture-header">
-          <h1>Woodlands</h1>
-          <h1>Cycling</h1>
-          <h1>Dealy</h1>
+          <h1>Bike Month 2017</h1>
+          <h1>in The Woodlands</h1>
           <div className="photo-attribution">
             <a href="https://www.flickr.com/photos/eleaf/2562658408/in/photolist-4Usi4E-4Uo4Jk-cdZDWQ-f9ztwp-EkNaev-8P9xaj-9Sfuuf-ofR5Rq-5ntxjh-8YgXoS-93xJb2-9RY3Ma-8e6jpT-obYd9y-7D4Vmb-pcyWYn-pT9cTi-FxX789-uypKTW-k5Ee8V-kWEEEg-a2L82a-4UshrS-4Uo4UV-o8KCbS-dseySr-4Uo5ft-4Uo2uZ-eheECF-ckfm7C-d8BqmL-4Uo574-9tG11T-oxdGqy-4uML4R-rQM91j-kYmC4E-ckfHzA-hoJrJN-9Mfjux-czzpey-dsn4kg-5yxST9-7ZZ9nA-4DixfL-d5j2CC-ckfkcU-7n995Q-mLyCiX-9Mi7Zs">
               Iron Horse Bicycle Race Durango Women 9 by Ethan Lofton
@@ -252,12 +284,12 @@ class App extends Component {
           </div>
 
           <div className="filter">
-            <div className="filter-title">Filter by audience:</div>
+            <div className="filter-title">Filter by demographic:</div>
             <Select
               value={this.state.selectedAudienceFilter}
               options={AUDIENCE_OPTIONS}
               onChange={this.filterByAudience.bind(this)}
-              placeholder="Audience…"
+              placeholder="Demographic…"
             />
           </div>
 
@@ -268,6 +300,17 @@ class App extends Component {
               options={EVENT_TYPE_OPTIONS}
               onChange={this.filterByEventType.bind(this)}
               placeholder="Event type…"
+            />
+          </div>
+
+
+          <div className="filter">
+            <div className="filter-title">Filter by starting location:</div>
+            <Select
+              value={this.state.selectedStartingLocationFilter}
+              options={STARTING_AREA_OPTIONS}
+              onChange={this.filterByStartingLocation.bind(this)}
+              placeholder="Starting location…"
             />
           </div>
 
@@ -288,11 +331,14 @@ class App extends Component {
             <div className='cell col time col-2'>
               Time
             </div>
-            <div className='cell col audience col-3'>
-              Audience
+            <div className='cell col audience col-2'>
+              Demographic
             </div>
             <div className='cell col location col-2'>
               Event Type
+            </div>
+            <div className='cell col location col-3'>
+              Starting Location
             </div>
           </div>
           {rows}
