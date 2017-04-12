@@ -305,12 +305,12 @@ class App extends Component {
 
 
           <div className="filter">
-            <div className="filter-title">Filter by starting location:</div>
+            <div className="filter-title">Filter by Village:</div>
             <Select
               value={this.state.selectedStartingLocationFilter}
               options={STARTING_AREA_OPTIONS}
               onChange={this.filterByStartingLocation.bind(this)}
-              placeholder="Starting location…"
+              placeholder="Village…"
             />
           </div>
 
