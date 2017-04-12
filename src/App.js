@@ -8,6 +8,7 @@ import Select from 'react-select';
 
 // Be sure to include styles at some point, probably during your bootstrapping
 import 'react-select/dist/react-select.css';
+const SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1YH5wsTT05BlCfLhal3PoUU--IVeBHVC4CA23fZQuSVI/pubhtml?gid=1872620934&single=true';
 
 const AUDIENCE_OPTIONS = [
   { value: 'Adults', label: 'Adults' },
@@ -81,7 +82,7 @@ class Row extends Component {
     const rowData = this.props.rowData;
     let location = null;
     STARTING_AREA_OPTIONS.forEach((option) => {
-      if (!!rowData[option.value]) { 
+      if (!!rowData[option.value]) {
         location = option.label;
       }
     });
@@ -151,13 +152,12 @@ function timeCompare(a, b) {
 
 
 class App extends Component {
-
   constructor(props) {
     super(props);
-    this.data = DATA;
+    this.data =  this.props.data;
 
     this.state = {
-      filteredData: this.sortByDateTime(DATA),
+      filteredData: this.props.data,
       selectedAudienceFilter: null,
       selectedEventTypeFilter: null,
       selectedTimeOfDayFilter: null,

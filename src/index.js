@@ -3,7 +3,24 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+
+var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1YH5wsTT05BlCfLhal3PoUU--IVeBHVC4CA23fZQuSVI/pubhtml?gid=1872620934&single=true';
+
+function init() {
+  window.Tabletop.init( { key: publicSpreadsheetUrl,
+                   callback: showInfo,
+                   simpleSheet: true } );
+}
+
+function showInfo(data, tabletop) {
+  ReactDOM.render(
+    <App data={data}/>,
+    document.getElementById('root')
+  );
+
+  console.log(data);
+}
+
+window.addEventListener('DOMContentLoaded', init)
+
+
