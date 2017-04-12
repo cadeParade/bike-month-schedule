@@ -118,17 +118,17 @@ function _makeDatetimeString(dataItem) {
   const month = dataItem.Date.split('-')[1];
   const day = dataItem.Date.split('-')[0];
   const time = dataItem.Time;
-  const ampm = dataItem.timeOfDay;
+  // const ampm = dataItem.timeOfDay;
 
-  return [month, day, time, ampm].join(' ');
+  return [month, day, time].join(' ');
 }
 
 function _makeDatetime(dataItem) {
-  return moment(_makeDatetimeString(dataItem), 'MMMM DD hh:mm a');
+  return moment(_makeDatetimeString(dataItem), 'MMMM DD hh:mma');
 }
 
 function _makeTime(dataItem) {
-  return moment(_makeDatetimeString(dataItem), 'hh:mm a');
+  return moment(_makeDatetimeString(dataItem), 'hh:mma');
 }
 
 

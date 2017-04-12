@@ -59,7 +59,7 @@ export default [
  },
  {
    "Date": "2-May",
-   "Time": "6pm",
+   "Time": "6:00pm",
    "Event": "Bicycle World Basic Maint. Wkshp",
    "Starting point": "Bicycle World",
    "Kids": "",
@@ -88,7 +88,7 @@ export default [
  },
  {
    "Date": "3-May",
-   "Time": "6pm",
+   "Time": "6:00pm",
    "Event": "Bike Month Kickoff",
    "Starting point": "Whole Foods",
    "Kids": "",
@@ -117,7 +117,7 @@ export default [
  },
  {
    "Date": "4-May",
-   "Time": "7pm",
+   "Time": "7:00pm",
    "Event": "Social Ride",
    "Starting point": "Torchy’s",
    "Kids": "",
@@ -175,7 +175,7 @@ export default [
  },
  {
    "Date": "5-May",
-   "Time": "5pm",
+   "Time": "5:00pm",
    "Event": "Kids Ride ages 4-10",
    "Starting point": "Rob Fleming Lodge",
    "Kids": "X",
@@ -233,7 +233,7 @@ export default [
  },
  {
    "Date": "6-May",
-   "Time": "10am",
+   "Time": "10:00am",
    "Event": "Bicycle World Bike Wash",
    "Starting point": "Bicycle World",
    "Kids": "",
@@ -262,7 +262,7 @@ export default [
  },
  {
    "Date": "7-May",
-   "Time": "2pm",
+   "Time": "2:00pm",
    "Event": "Public Art Ride",
    "Starting point": "South Regional Library",
    "Kids": "",
@@ -291,7 +291,7 @@ export default [
  },
  {
    "Date": "7-May",
-   "Time": "8am",
+   "Time": "8:00am",
    "Event": "Bicycle World Road Ride",
    "Starting point": "Bicycle World",
    "Kids": "",
@@ -320,7 +320,7 @@ export default [
  },
  {
    "Date": "8-May",
-   "Time": "6pm",
+   "Time": "6:00pm",
    "Event": "Sun and Ski Trail Ride",
    "Starting point": "Rob Fleming Park",
    "Kids": "",
@@ -378,7 +378,7 @@ export default [
  },
  {
    "Date": "9-May",
-   "Time": "6pm",
+   "Time": "6:00pm",
    "Event": "Bicycle World Adv Maint. Wkshp",
    "Starting point": "Bicycle World",
    "Kids": "",
@@ -407,7 +407,7 @@ export default [
  },
  {
    "Date": "10-May",
-   "Time": "7pm",
+   "Time": "7:00pm",
    "Event": "Maintenance workshop",
    "Starting point": "Whole Foods",
    "Kids": "",
@@ -494,7 +494,7 @@ export default [
  },
  {
    "Date": "12-May",
-   "Time": "8pm",
+   "Time": "8:00pm",
    "Event": "55+ Moonlight ride",
    "Starting point": "Township parking lot",
    "Kids": "",
@@ -523,7 +523,7 @@ export default [
  },
  {
    "Date": "12-May",
-   "Time": "9am",
+   "Time": "9:00am",
    "Event": "Bike Kayak Bike",
    "Starting point": "Shadowbend Park",
    "Kids": "",
@@ -552,7 +552,7 @@ export default [
  },
  {
    "Date": "13-May",
-   "Time": "8am",
+   "Time": "8:00am",
    "Event": "Neighborhood ride",
    "Starting point": "Bear Branch Park",
    "Kids": "",
@@ -581,7 +581,7 @@ export default [
  },
  {
    "Date": "13-May",
-   "Time": "8am",
+   "Time": "8:00am",
    "Event": "Neighborhood ride",
    "Starting point": "Ridgewood Park",
    "Kids": "",
@@ -610,7 +610,7 @@ export default [
  },
  {
    "Date": "13-May",
-   "Time": "8am",
+   "Time": "8:00am",
    "Event": "Swap Meet",
    "Starting point": "Grogans Mill Farmers Mkt",
    "Kids": "",
@@ -668,7 +668,7 @@ export default [
  },
  {
    "Date": "13-May",
-   "Time": "8am",
+   "Time": "8:00am",
    "Event": "Neighborhood ride",
    "Starting point": "Tupelo Park",
    "Kids": "",
@@ -697,7 +697,7 @@ export default [
  },
  {
    "Date": "13-May",
-   "Time": "10am",
+   "Time": "10:00am",
    "Event": "GHORBA Mountain Bike Clinic ",
    "Starting point": "Terramont Park",
    "Kids": "",
@@ -726,7 +726,7 @@ export default [
  },
  {
    "Date": "13-May",
-   "Time": "10am",
+   "Time": "10:00am",
    "Event": "Bicycle World Bike Wash",
    "Starting point": "Bicycle World",
    "Kids": "",
@@ -755,7 +755,7 @@ export default [
  },
  {
    "Date": "13-May",
-   "Time": "8am",
+   "Time": "8:00am",
    "Event": "Neighborhood ride",
    "Starting point": "May Valley Park",
    "Kids": "",
@@ -813,7 +813,7 @@ export default [
  },
  {
    "Date": "14-May",
-   "Time": "8am",
+   "Time": "8:00am",
    "Event": "Bicycle World Road Ride",
    "Starting point": "Bicycle World",
    "Kids": "",
@@ -900,7 +900,7 @@ export default [
  },
  {
    "Date": "16-May",
-   "Time": "6pm",
+   "Time": "6:00pm",
    "Event": "Bicycle World Basic Maint. Wkshp",
    "Starting point": "Bicycle World",
    "Kids": "",
@@ -987,7 +987,7 @@ export default [
  },
  {
    "Date": "18-May",
-   "Time": "7pm",
+   "Time": "7:00pm",
    "Event": "Social Ride",
    "Starting point": "Bar Louie",
    "Kids": "",
@@ -1074,7 +1074,7 @@ export default [
  },
  {
    "Date": "20-May",
-   "Time": "8pm",
+   "Time": "8:00pm",
    "Event": "Bike ART ride",
    "Starting point": "Near Whole Foods",
    "Kids": "",
@@ -1161,7 +1161,7 @@ export default [
  },
  {
    "Date": "20-May",
-   "Time": "9am",
+   "Time": "9:00am",
    "Event": "Sun&Ski Relaxed road ride",
    "Starting point": "Hughes Landing",
    "Kids": "",
@@ -1219,7 +1219,7 @@ export default [
  },
  {
    "Date": "20-May",
-   "Time": "10am",
+   "Time": "10:00am",
    "Event": "Bicycle World Bike Wash",
    "Starting point": "Bicycle World",
    "Kids": "",
@@ -1233,7 +1233,7 @@ export default [
    "Long Road": "",
    "Workshop": "X",
    "Morning": "X",
-   "Afternoon": "X",
+   "Afternoon": "",
    "Evening": "",
    "Weekday": "",
    "Weekend": "X",
@@ -1248,7 +1248,7 @@ export default [
  },
  {
    "Date": "21-May",
-   "Time": "2pm",
+   "Time": "2:00pm",
    "Event": "Public Art Ride",
    "Starting point": "South Regional Library",
    "Kids": "",
@@ -1277,7 +1277,7 @@ export default [
  },
  {
    "Date": "21-May",
-   "Time": "8am",
+   "Time": "8:00am",
    "Event": "Bicycle World Road Ride",
    "Starting point": "Bicycle World",
    "Kids": "",
@@ -1335,7 +1335,7 @@ export default [
  },
  {
    "Date": "23-May",
-   "Time": "6pm",
+   "Time": "6:00pm",
    "Event": "Bicycle World Adv Maint. Wkshp",
    "Starting point": "Bicycle World",
    "Kids": "",
@@ -1364,7 +1364,7 @@ export default [
  },
  {
    "Date": "24-May",
-   "Time": "7pm",
+   "Time": "7:00pm",
    "Event": "Maintenance workshop",
    "Starting point": "Whole Foods",
    "Kids": "",
@@ -1451,7 +1451,7 @@ export default [
  },
  {
    "Date": "26-May",
-   "Time": "5pm",
+   "Time": "5:00pm",
    "Event": "Bike ride - 10-15 yrs",
    "Starting point": "Rob Fleming Lodge",
    "Kids": "X",
@@ -1509,7 +1509,7 @@ export default [
  },
  {
    "Date": "27-May",
-   "Time": "10am",
+   "Time": "10:00am",
    "Event": "Bicycle World Bike Wash",
    "Starting point": "Bicycle World",
    "Kids": "",
@@ -1538,7 +1538,7 @@ export default [
  },
  {
    "Date": "28-May",
-   "Time": "8am",
+   "Time": "8:00am",
    "Event": "Bicycle World Road Ride",
    "Starting point": "Bicycle World",
    "Kids": "",
@@ -1567,7 +1567,7 @@ export default [
  },
  {
    "Date": "29-May",
-   "Time": "8am",
+   "Time": "8:00am",
    "Event": "Bikeland Memorial Day Ride",
    "Starting point": "Whole Foods",
    "Kids": "",
@@ -1625,7 +1625,7 @@ export default [
  },
  {
    "Date": "30-May",
-   "Time": "6pm",
+   "Time": "6:00pm",
    "Event": "Bicycle World Basic Maint. Wkshp",
    "Starting point": "Bicycle World",
    "Kids": "",
