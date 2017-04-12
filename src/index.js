@@ -9,12 +9,12 @@ const publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1YH5wsTT05B
 function init() {
   window.Tabletop.init( { key: publicSpreadsheetUrl,
                    callback: showInfo,
-                   simpleSheet: true } );
+                   simpleSheet: false } );
 }
 
 function showInfo(data, tabletop) {
   ReactDOM.render(
-    <App data={data}/>,
+    <App data={tabletop.sheets().v3.all()}/>,
     document.getElementById('root')
   );
 }

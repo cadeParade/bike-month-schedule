@@ -75,7 +75,7 @@ class Row extends Component {
     return _makeDatetime(rowData);
   }
 
-  startingLocationDisplay() {
+  villageDisplay() {
     const rowData = this.props.rowData;
     let location = null;
     STARTING_AREA_OPTIONS.forEach((option) => {
@@ -96,13 +96,24 @@ class Row extends Component {
       <div className='cell col col-1 day'>
         <Moment format="MMM D">{this.datetime()}</Moment>
       </div>
-      <div className='cell col col-2 time'>
+      <div className='cell col col-1 time'>
         <Moment format="h:mm a">{this.datetime()}</Moment>
       </div>
       <div className='cell col col-3 name'>
-        {this.props.rowData.Event}
+        <a href={this.props.rowData['Event url']} className="event-link">
+          {this.props.rowData.Event}
+        </a>
       </div>
-      <div className='cell col col-4 name'>
+      <div className='cell col col-1 audience'>
+        {this.audienceDisplay()}
+      </div>
+      <div className='cell col col-1 location'>
+        {this.locationDisplay()}
+      </div>
+      <div className='cell col col-1 location'>
+        {this.villageDisplay()}
+      </div>
+      <div className='cell col col-2 name'>
         {this.props.rowData['Starting point']}
       </div>
       <div className='cell col col-1 name'>
@@ -184,7 +195,7 @@ class App extends Component {
      'selectedEventTypeFilter',
      'selectedTimeOfDayFilter',
      'selectedDayOfWeekFilter',
-     'selectedStartingLocationFilter'].forEach(function(filterString) {
+     'selectedVillageFilter'].forEach(function(filterString) {
        if (!!_this.state[filterString]) {
         filteredRows = _this._filterMethod(filteredRows, filterString);
        }
@@ -227,8 +238,8 @@ class App extends Component {
     this.filterBy('selectedDayOfWeekFilter', option)
   }
 
-  filterByStartingLocation(option) {
-    this.filterBy('selectedStartingLocationFilter', option)
+  filterByVillage(option) {
+    this.filterBy('selectedVillageFilter', option)
   }
 
   clearFilters() {
@@ -238,7 +249,7 @@ class App extends Component {
       selectedEventTypeFilter: null,
       selectedTimeOfDayFilter: null,
       selectedDayOfWeekFilter: null,
-      selectedStartingLocationFilter: null
+      selectedVillageFilter: null
     })
   }
 
@@ -304,9 +315,9 @@ class App extends Component {
           <div className="filter">
             <div className="filter-title">Filter by Village:</div>
             <Select
-              value={this.state.selectedStartingLocationFilter}
+              value={this.state.selectedVillageFilter}
               options={STARTING_AREA_OPTIONS}
-              onChange={this.filterByStartingLocation.bind(this)}
+              onChange={this.filterByVillage.bind(this)}
               placeholder="Village…"
             />
           </div>
@@ -325,13 +336,22 @@ class App extends Component {
             <div className='cell col day col-1'>
               Date
             </div>
-            <div className='cell col time col-2'>
+            <div className='cell col time col-1'>
               Time
             </div>
             <div className='cell name col col-3'>
               Event
             </div>
-            <div className='cell col starting-point col-4'>
+            <div className='cell col col-1 audience'>
+              Demographic
+            </div>
+            <div className='cell col col-1 location'>
+              Type
+            </div>
+            <div className='cell col col-1 location'>
+              Village
+            </div>
+            <div className='cell col starting-point col-2'>
               Starting Point
             </div>
             <div className='cell col map-location col-1'>
