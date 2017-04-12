@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import DATA from './data';
 import Moment from 'react-moment';
 import moment from 'moment';
 import Select from 'react-select';
@@ -93,8 +92,8 @@ class Row extends Component {
   render() {
     return (
     <div className='row clearfix'>
-      <div className='cell col col-4 name'>
-        {this.props.rowData.Event}
+      <div className='cell col col-1 name'>
+        {this.props.rowData.Day}
       </div>
       <div className='cell col col-1 day'>
         <Moment format="MMM D">{this.datetime()}</Moment>
@@ -102,14 +101,14 @@ class Row extends Component {
       <div className='cell col col-2 time'>
         <Moment format="h:mm a">{this.datetime()}</Moment>
       </div>
-      <div className='cell col col-2 audience'>
-        {this.audienceDisplay()}
+      <div className='cell col col-3 name'>
+        {this.props.rowData.Event}
       </div>
-      <div className='cell col col-2 location'>
-        {this.locationDisplay()}
+      <div className='cell col col-4 name'>
+        {this.props.rowData['Starting point']}
       </div>
-      <div className='cell col col-3 location'>
-        {this.startingLocationDisplay()}
+      <div className='cell col col-1 name'>
+        {this.props.rowData['Map Location']}
       </div>
     </div>)
   }
@@ -322,8 +321,8 @@ class App extends Component {
 
         <div className="table">
           <div className="row header clearfix">
-            <div className='cell name col col-4'>
-              Event <span>(sort)</span>
+            <div className='cell col day col-1'>
+              Day
             </div>
             <div className='cell col day col-1'>
               Date
@@ -331,14 +330,14 @@ class App extends Component {
             <div className='cell col time col-2'>
               Time
             </div>
-            <div className='cell col audience col-2'>
-              Demographic
+            <div className='cell name col col-3'>
+              Event
             </div>
-            <div className='cell col location col-2'>
-              Event Type
+            <div className='cell col starting-point col-4'>
+              Starting Point
             </div>
-            <div className='cell col location col-3'>
-              Starting Location
+            <div className='cell col map-location col-1'>
+              Map Location
             </div>
           </div>
           {rows}
