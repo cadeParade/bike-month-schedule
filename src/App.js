@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import DATA from './data';
+// import DATA from './data';
 import Moment from 'react-moment';
 import moment from 'moment';
 import Select from 'react-select';
@@ -181,7 +181,7 @@ class App extends Component {
   }
 
   filterMethod() {
-    let filteredRows = Array.prototype.slice.apply(DATA);//   this.data;
+    let filteredRows = Array.prototype.slice.apply(this.data);
     const _this = this;
     ['selectedAudienceFilter',
      'selectedEventTypeFilter',
