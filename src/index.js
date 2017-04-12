@@ -17,8 +17,6 @@ function showInfo(data, tabletop) {
     <App data={data}/>,
     document.getElementById('root')
   );
-
-  console.log(data);
 }
 
 window.addEventListener('DOMContentLoaded', init)

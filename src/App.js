@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Moment from 'react-moment';
 import moment from 'moment';
@@ -7,7 +6,6 @@ import Select from 'react-select';
 
 // Be sure to include styles at some point, probably during your bootstrapping
 import 'react-select/dist/react-select.css';
-const SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1YH5wsTT05BlCfLhal3PoUU--IVeBHVC4CA23fZQuSVI/pubhtml?gid=1872620934&single=true';
 
 const AUDIENCE_OPTIONS = [
   { value: 'Adults', label: 'Adults' },
