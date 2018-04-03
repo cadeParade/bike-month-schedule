@@ -261,7 +261,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="picture-header">
-          <h1>Bike Month 2017</h1>
+          <h1>Bike Month 2018</h1>
           <h1>in The Woodlands</h1>
           <div className="photo-attribution">
             <a href="https://www.flickr.com/photos/eleaf/2562658408/in/photolist-4Usi4E-4Uo4Jk-cdZDWQ-f9ztwp-EkNaev-8P9xaj-9Sfuuf-ofR5Rq-5ntxjh-8YgXoS-93xJb2-9RY3Ma-8e6jpT-obYd9y-7D4Vmb-pcyWYn-pT9cTi-FxX789-uypKTW-k5Ee8V-kWEEEg-a2L82a-4UshrS-4Uo4UV-o8KCbS-dseySr-4Uo5ft-4Uo2uZ-eheECF-ckfm7C-d8BqmL-4Uo574-9tG11T-oxdGqy-4uML4R-rQM91j-kYmC4E-ckfHzA-hoJrJN-9Mfjux-czzpey-dsn4kg-5yxST9-7ZZ9nA-4DixfL-d5j2CC-ckfkcU-7n995Q-mLyCiX-9Mi7Zs">
