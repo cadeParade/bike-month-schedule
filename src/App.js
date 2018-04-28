@@ -17,10 +17,9 @@ const AUDIENCE_OPTIONS = [
 const EVENT_TYPE_OPTIONS = [
   { value: 'Pathway', label: 'Pathway' },
   { value: 'Road', label: 'Road' },
-  { value: 'Road, Relaxed', label: 'Road, Relaxed' },
   { value: 'Off road', label: 'Off road' },
   { value: 'Long road', label: 'Long road' },
-  { value: 'Workshop', label: 'Workshop' }
+  { value: 'Workshop/OTHER', label: 'Workshop/OTHER' }
 ];
 
 const TIME_OF_DAY_OPTIONS = [
@@ -37,13 +36,13 @@ const DAY_OF_WEEK_OPTIONS = [
 
 const STARTING_AREA_OPTIONS = [
   { value: "Alden Bridge", label: "Alden Bridge" },
-  { value: "Cochrans  Crossing", label: "Cochrans Crossing" },
   { value: "Creekside", label: "Creekside" },
   { value: "Grogans Mill", label: "Grogans Mill" },
   { value: "Indian Springs", label: "Indian Springs" },
   { value: "Panther Creek", label: "Panther Creek" },
   { value: "Sterling Ridge", label: "Sterling Ridge" },
-  { value: "Town Center", label: "Town Center" }
+  { value: "Town Center", label: "Town Center" },
+  { value: "Other", label: "Other" }
 ];
 
 
@@ -55,7 +54,7 @@ class Row extends Component {
     if (!!rowData['Off road']) { return 'Off road'; }
     if (!!rowData['Long road']) { return 'Long road'; }
     if (!!rowData.Workshop) { return 'Workshop'; }
-    if (!!rowData['Road, Relaxed']) { return 'Road, Relaxed'; }
+    if (!!rowData['Workshop/OTHER']) { return 'Workshop/ OTHER'; }
   }
 
   audienceDisplay() {
